@@ -1,0 +1,46 @@
+﻿<div><br />
+    <div class="panel panel-default">
+        
+        <div class="panel-heading" ng-if="MehvarId">Mehvars | Update Mehvar</div>
+        <div class="panel-heading" ng-if="!MehvarId">Mehvars | New Mehvar</div>
+        <div>
+            <p style="text-align: center; color: red">{{message}}</p>
+        </div>
+
+        <table>
+            <tr>
+                <td class="control-label col-md-2"><b>نام</b></td>
+                <td>
+                    <input class="form-control" type="text" ng-required="true" ng-model="Name" placeholder="Name" required/>
+                </td>
+            </tr>
+            <tr>
+                <td class="control-label col-md-2"><b>مثبت</b></td>
+                <td>
+                    <input type="checkbox" ng-model="PositiveModality" placeholder="PositiveModality"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="control-label col-md-2"><b>نوع سیستم</b></td>
+                <td>
+                    <!--<input class="form-control" type="text" ng-required="true" ng-model="SystemType" placeholder="SystemType" value="x.text"/>-->
+                    <select class="form-control" ng-model="selector">
+                        <option></option>
+                        <option ng-repeat="x in syscodes" value="{{x.CodeName}}">{{x.CodeDesc}}</option>
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button id="submitButton" name="submitButton" class="btn btn-primary" ng-click="AddUpdateMehvar()" ng-disabled="!selector">ذخیره</button>
+                    <a class="btn btn-warning" href="#/mehvar">Cancel</a>
+                </td>
+            </tr>
+        </table>
+       
+        <input type="hidden" ng-model="MehvarId"/>
+
+    </div>
+</div>

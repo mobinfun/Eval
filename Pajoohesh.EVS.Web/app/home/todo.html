@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../../Scripts/Angular1.3.5/angular.js"></script>
+    <script src="../controller/testController.js"></script>
+</head>
+<body ng-app="myApp">
+    
+    <div ng-controller="todoCtr">
+        <div ng-repeat="todo in todos"><span>{{todo.text}}</span><input type="checkbox" ng-model="todo.done"></div>
+        <div><input type="text" ng-model="newTodo"><button ng-click="addTodo()" ng-model="addBtn" ng-disabled="!newTodo">add</button></div>
+        
+        {{todos.length}}
+
+    </div>
+    
+</body>
+</html>

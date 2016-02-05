@@ -1,0 +1,54 @@
+﻿<div>
+    <br />
+    <div class="panel panel-default">
+        <div class="panel-heading">Mehvars | All</div>
+        <div class="panel-body">
+            <div class="input-group">
+                <a class="btn btn-primary" href="#/mehvar/new" ng-click="newMehvar()"> New Mehvar</a>
+                <input type="text" id="searchText" class="form-control pull-right" placeholder="Search for..." ng-model="search_txt">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button">
+                        <i class="text-muted glyphicon glyphicon-search"></i>
+                    </button>
+                </span>
+            </div><!-- /input-group -->
+            <div><p style="text-align:center;color:red">{{message}}</p></div>
+            <div class="table table-responsive">
+                <table class="table table-striped">
+                    <thead style="background-color:#333;color:#fff">
+                        <tr>
+                            <th>نام محور</th>
+                            <th>مثبت</th>                         
+                            <th>نوع سیستم</th>
+                            
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="mehvar in mehvars | filter:search_txt">
+                            <td>
+                                {{mehvar.Name}}
+                            </td>
+                           
+                            <td>{{mehvar.PositiveModality}}</td>
+                            <td>{{mehvar.SystemType}}</td>
+                            
+                            <td>
+                                <a class="btn btn-primary" href="#/mehvar/{{mehvar.MehvarId}}">
+                                    <i class="glyphicon glyphicon-edit"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a id="deleteButton" name="submitForm" class="btn btn-danger"
+                                   ng-click="deleteMehvar(mehvar.MehvarId)">
+                                    <i class="glyphicon glyphicon-trash"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
